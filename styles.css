@@ -1,0 +1,492 @@
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    padding-top: 76px;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.letter-spacing {
+    letter-spacing: 3px;
+}
+
+/* ===== Brand Theme Overrides ===== */
+:root {
+    --brand-navy: #03002E;
+    --brand-green: #62A43C;
+    --brand-green-dark: #549729;
+}
+
+.text-warning {
+    color: var(--brand-green) !important;
+}
+
+.btn-warning {
+    background-color: var(--brand-green) !important;
+    border-color: var(--brand-green) !important;
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active {
+    background-color: var(--brand-green-dark) !important;
+    border-color: var(--brand-green-dark) !important;
+}
+
+.btn-outline-warning {
+    color: var(--brand-green) !important;
+    border-color: var(--brand-green) !important;
+}
+
+.btn-outline-warning:hover,
+.btn-outline-warning:focus,
+.btn-outline-warning:active {
+    background-color: var(--brand-green) !important;
+    border-color: var(--brand-green) !important;
+    color: #fff !important;
+}
+
+.bg-warning {
+    background-color: var(--brand-green) !important;
+}
+
+/* ===== Navbar ===== */
+#mainNav {
+    background: #03002E;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+#mainNav .nav-link {
+    color: rgba(255,255,255,0.85) !important;
+    font-weight: 500;
+    margin: 0 8px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+#mainNav .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #62A43C;
+    transition: width 0.3s ease;
+}
+
+#mainNav .nav-link:hover,
+#mainNav .nav-link.active {
+    color: #62A43C !important;
+}
+
+/* ===== Brand ===== */
+.brand-icon {
+    font-size: 2.3rem;
+    color: #62A43C;
+}
+
+.brand-logo {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.footer-logo {
+    width: 32px;
+    height: 32px;
+}
+
+.brand-title {
+    font-size: 1.9rem;
+    line-height: 1.1;
+    color: #fff;
+}
+
+.brand-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 1.5px;
+    color: #62A43C;
+}
+
+/* ===== Hero Carousel ===== */
+.hero-carousel-section {
+    position: relative;
+    margin-top: -76px;
+}
+
+.hero-carousel-section .carousel-item {
+    height: 100vh;
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-carousel-section .carousel-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+}
+
+.carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding-top: 76px;
+}
+
+.carousel-overlay .container {
+    max-width: 800px;
+}
+
+.carousel-title {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.carousel-subtitle {
+    animation: fadeInUp 0.8s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.carousel-item .btn {
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+    opacity: 0;
+}
+
+.hero-carousel-section .carousel-indicators button {
+    width: 21px;
+    height: 0.1px;
+    border-radius: 100%;
+    margin: 0 6px;
+    background: rgba(255,255,255,0.5);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.hero-carousel-section .carousel-indicators button.active {
+    background: #62A43C;
+    border-color: #62A43C;
+    transform: scale(1.2);
+}
+
+.hero-carousel-section .carousel-control-prev,
+.hero-carousel-section .carousel-control-next {
+    width: 60px;
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 3;
+}
+
+.hero-carousel-section:hover .carousel-control-prev,
+.hero-carousel-section:hover .carousel-control-next {
+    opacity: 1;
+}
+
+.hero-carousel-section .carousel-control-prev {
+    left: 30px;
+}
+
+.hero-carousel-section .carousel-control-next {
+    right: 30px;
+}
+
+.hero-carousel-section .carousel-control-prev-icon,
+.hero-carousel-section .carousel-control-next-icon {
+    width: 24px;
+    height: 24px;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Stats Section ===== */
+.stats-section {
+    background: linear-gradient(135deg, #03002E, #03002E);
+}
+
+.stat-item {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-8px);
+    background: rgba(98,164,60,0.1);
+}
+
+.stat-item h2 {
+    font-size: 2.5rem;
+}
+
+/* ===== Service Cards ===== */
+.service-card {
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: #62A43C;
+    transition: height 0.3s ease;
+}
+
+.service-card:hover::before {
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+}
+
+.service-icon {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background: rgba(98,164,60,0.1);
+    border-radius: 16px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(-5deg);
+    background: rgba(98,164,60,0.2);
+}
+
+/* ===== Contact Section ===== */
+.contact-form-wrapper {
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #62A43C;
+    box-shadow: 0 0 0 0.2rem rgba(98,164,60,0.2);
+}
+
+.social-links .btn {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-links .btn:hover {
+    background: #62A43C;
+    color: #03002E !important;
+    transform: translateY(-3px);
+}
+
+/* ===== Footer ===== */
+.footer-section {
+    background: #03002E;
+}
+
+.footer-section a:hover {
+    color: #62A43C !important;
+}
+
+/* ===== Toast Notification ===== */
+.toast-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+}
+
+/* ===== Scroll Animations ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Back to Top ===== */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #62A43C;
+    color: #03002E;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(98,164,60,0.4);
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#backToTop:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(98,164,60,0.5);
+}
+
+/* ===== WhatsApp Float Button ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25d366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+    z-index: 999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-4px);
+    color: #fff;
+    background: #1ebe5d;
+    box-shadow: 0 8px 25px rgba(37,211,102,0.55);
+}
+
+.whatsapp-float::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #25d366;
+    opacity: 0.4;
+    z-index: -1;
+    animation: whatsappPulse 2s ease-out infinite;
+}
+
+@keyframes whatsappPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.7);
+        opacity: 0;
+    }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+
+    #mainNav .container {
+        position: relative;
+    }
+    
+    /* Position the button in the top right */
+    #mainNav .navbar-toggler {
+        position: absolute;
+        top: 10px;
+        right: 1px;
+        border: none;
+        font-size: 1.6rem;
+    }
+
+    #mainNav .navbar-toggler:focus{
+        box-shadow: none;
+    }
+    
+    /* Add a little padding so long logo text doesn't overlap the button */
+    #mainNav .navbar-brand {
+        padding-right: 60px;
+    }
+    .hero-carousel-section .carousel-item {
+        height: 93vh;
+        min-height: 500px;
+    }
+    .carousel-title {
+        font-size: 2.2rem;
+    }
+    .stat-item h2 {
+        font-size: 2rem;
+    }
+    .toast-container {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+    .hero-carousel-section .carousel-control-prev,
+    .hero-carousel-section .carousel-control-next {
+        display: none;
+    }
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+        font-size: 1.7rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
