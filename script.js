@@ -202,6 +202,60 @@ if (newsletterForm) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    /* ===== Cookie Consent Banner ===== */
+    const cookieBanner = document.getElementById('cookieConsentBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const declineBtn = document.getElementById('declineCookies');
+    
+    // Check local storage for previous consent
+    const cookieConsent = localStorage.getItem('cookieConsent');
+    
+    // Only show banner if no choice has been made yet
+    if (!cookieConsent) {
+        cookieBanner.style.display = 'block';
+    } else if (cookieConsent === 'accepted') {
+        // If they already accepted in a previous session, load GA silently
+        loadGoogleAnalytics();
+    }
+
+    // Handle Accept
+    if (acceptBtn) {
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieBanner.style.display = 'none';
+            loadGoogleAnalytics();
+        });
+    }
+
+    // Handle Decline
+    if (declineBtn) {
+        declineBtn.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'declined');
+            cookieBanner.style.display = 'none';
+        });
+    }
+    
+    // Function to dynamically inject Google Analytics ONLY upon consent
+    function loadGoogleAnalytics() {
+        // Prevent loading multiple times
+        if (document.getElementById('ga-script')) return;
+        
+        const script1 = document.createElement('script');
+        script1.id = 'ga-script';
+        script1.async = true;
+        script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-5FT3HVYM9T';
+        document.head.appendChild(script1);
+
+        const script2 = document.createElement('script');
+        script2.innerHTML = `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5FT3HVYM9T');
+        `;
+        document.head.appendChild(script2);
+    }
+
     /* ===== Smooth Navbar Scroll (fallback for older browsers) ===== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
