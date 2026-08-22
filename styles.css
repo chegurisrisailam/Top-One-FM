@@ -483,10 +483,10 @@ body {
         display: none;
     }
     .whatsapp-float {
-        width: 52px;
-        height: 52px;
+        width: 39px;
+        height: 39px;
         font-size: 1.7rem;
-        bottom: 25px;
+        bottom: 40px;
         right: 20px;
     }
 }
