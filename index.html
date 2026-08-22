@@ -43,14 +43,22 @@
     <meta property="og:image" content="https://toponefm.com/icon.png" />
     <meta property="og:type" content="website" />
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FT3HVYM9T"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-5FT3HVYM9T');
-    </script>
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsentBanner" class="position-fixed bottom-0 start-0 w-100 p-3 shadow-lg" style="background-color: var(--brand-navy); z-index: 10000; display: none;">
+        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <div class="mb-3 mb-md-0 text-center text-md-start">
+                <p class="mb-0 small text-white">
+                    <i class="fas fa-cookie-bite text-warning me-2"></i>
+                    We use cookies to enhance your browsing experience and analyze site traffic. 
+                    Read our <a href="privacy-policy.html" class="text-warning text-decoration-underline">Privacy Policy</a> for more details.
+                </p>
+            </div>
+            <div class="d-flex gap-2">
+                <button id="declineCookies" class="btn btn-outline-light btn-sm px-4">Decline</button>
+                <button id="acceptCookies" class="btn btn-warning btn-sm text-dark fw-bold px-4">Accept</button>
+            </div>
+        </div>
+    </div>
 </head>
 <body>
     <!-- Navbar -->
@@ -456,6 +464,7 @@
                         <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">About Us</a></li>
                         <li class="mb-2"><a href="#services" class="text-white-50 text-decoration-none">Services</a></li>
                         <li class="mb-2"><a href="#contact" class="text-white-50 text-decoration-none">Contact</a></li>
+                        <li class="mb-2"><a href="" class="text-white-50 text-decoration-none">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="col-6 col-lg-3">
